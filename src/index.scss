@@ -1,29 +1,330 @@
-*{
-    margin:0;
-    padding:0;
-    // font-family: "Roboto", sans-serif;
-    // font-family: "Manrope", sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Manrope", sans-serif;
 }
-@mixin flex-col-center{
-    display:flex;
-    flex-direction:column;
+@mixin flex-col-center {
+    display: flex;
+    flex-direction: column;
     align-items: center;
 }
-@mixin flex-center{
+@mixin flex-center {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.container{
-    width: 1440px;
+.container {
+    width: 144rem;
 }
-#root{
-    >div{
-        display:flex;
-        justify-content: center;
-        width: 100%;
+#root,
+main {
+    > * {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: black;
     }
 }
-a{
+html {
+    font-size: 62.5%;
+}
+a {
     text-decoration: none;
+    color: white;
+    transition: color 0.1s ease-in;
+    &:hover {
+        color: rgb(163, 163, 163);
+    }
+}
+button {
+    border: none;
+    cursor: pointer;
+    &:focus {
+        outline: none;
+    }
+}
+header {
+    @include flex-center;
+    background-color: black;
+    .container {
+        padding: 20px 150px;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .headerPanel {
+            display: flex;
+            gap: 50px;
+            > * {
+                align-items: center;
+            }
+            .linksList {
+                display: flex;
+                gap: 30px;
+                a {
+                    font-family: "Roboto", sans-serif;
+                    font-size: 1.6rem;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    .lightning {
+                        font-size: 2rem;
+                    }
+                }
+            }
+            .changeLanguage {
+                position: relative;
+                display: flex;
+                button {
+                    display: flex;
+                    justify-content: space-around;
+                    padding-block: 0.5rem;
+                    background: transparent;
+                    color: white;
+                    gap: 5px;
+                }
+                .firstB {
+                    display: flex;
+                    background-color: transparent;
+                    align-items: center;
+                    font-family: "Manrope", sans-serif;
+                    .arrowD {
+                        font-size: 2rem;
+                        height: fit-content;
+                        transition: transform 0.2s linear;
+                    }
+                }
+                .otherLanguages {
+                    display: none;
+                    position: absolute;
+                    left: 0;
+                    top: 100%;
+                    width: 80%;
+                    background: black;
+                }
+            }
+        }
+    }
+}
+.buttons {
+    display: flex;
+    align-items: center;
+    gap: 6rem;
+}
+.specialButton {
+    padding: 1.7rem 2.2rem;
+    box-sizing: border-box;
+    width: fit-content;
+    height: 5.8rem;
+    border: 1px solid white;
+    background-color: transparent;
+    color: white;
+    font-family: "Manrope", sans-serif;
+    font-weight: 100;
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    transition: transform 0.1s linear;
+    &:hover {
+        transform: scale(1.02);
+    }
+    &:active {
+        transform: scale(1.05);
+    }
+    .arrow {
+        font-size: 4rem;
+        height: fit-content;
+    }
+    &:first-child {
+        padding: 1rem 1rem 1rem 3rem;
+        gap: 1rem;
+    }
+}
+.introdaction {
+    background-color: black;
+    .container {
+        padding-top: 18rem;
+        position: relative;
+        .sideMark {
+            position: absolute;
+            left: 0;
+        }
+        .mainContent {
+            margin-left: 18rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 3.6rem;
+            h1 {
+                color: white;
+                font-family: "Manrope", sans-serif;
+                font-weight: 100;
+                font-size: 7.2rem;
+                width: 73rem;
+                line-height: 1.1;
+            }
+        }
+    }
+}
+.player {
+    .container {
+        margin-block: 5rem;
+        position: relative;
+        @include flex-center;
+        button{
+            position: absolute;
+            z-index: 2;
+            border-radius: 50%;
+            font-family: "Inter";
+            font-size: 2.5rem;
+            font-weight: 100;
+            color:white;
+            background-color: rgba(0,0,0,0.5);
+            width: 10rem;
+            height: 10rem;
+            transition: all 0.1s linear;
+            &:hover{
+                background-color: rgba(0,0,0,0.7);
+            }
+            &:active{
+                transform: scale(1.05);
+            }
+        }
+        img {
+            &:nth-child(1) {
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+
+            &:nth-child(3) {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+            }
+        }
+    }
+}
+.clients {
+    .container {
+        @include flex-col-center;
+        .clientsLayout {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            row-gap: 2rem;
+            column-gap: 10rem;
+        }
+        gap: 4rem;
+    }
+}
+.aboutUs {
+    .container {
+        display: flex;
+        margin-top: 5rem;
+        > * {
+            width: 50%;
+            height: 70rem;
+            box-sizing: border-box;
+            display: flex;
+            align-items: flex-end;
+            padding: 7.2rem;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            .content {
+                display: flex;
+                flex-direction: column;
+                gap: 3rem;
+            }
+            p {
+                font-family: "Manrope", sans-serif;
+                font-size: 3.6rem;
+                font-weight: 100;
+                color: white;
+            }
+        }
+        .left {
+            background-image: url("./assets/images/girl.png");
+            button {
+                border: none;
+                background-color: #3549cb;
+                font-weight: 400;
+            }
+        }
+        .right {
+            flex-direction: column;
+            align-items: flex-start;
+            background-image: url("./assets/images/laptop.jpg");
+            button {
+                align-self: flex-end;
+            }
+        }
+    }
+}
+footer {
+    .container {
+        padding: 12rem 10rem 3rem 10rem;
+        margin-bottom: 6rem;
+        display: flex;
+        flex-direction: column;
+        gap: 4rem;
+        position: relative;
+        overflow: hidden;
+        > * {
+            display: flex;
+            justify-content: space-between;
+            z-index: 1;
+        }
+        > img {
+            position: absolute;
+            z-index: 0;
+        }
+        .center {
+            p {
+                color: white;
+                font-size: 4rem;
+                font-weight: 100;
+                line-height: 1.3;
+            }
+            .buttons {
+                align-self: flex-start;
+                gap: 2rem;
+                button {
+                    &:last-child {
+                        border: none;
+                        background-color: #3549cb;
+                    }
+                }
+            }
+        }
+        .bottom {
+            span {
+                font-size: 1.4rem;
+                font-weight: 100;
+                color: #858a99;
+            }
+            .links {
+                display: flex;
+                align-items: center;
+                gap: 2rem;
+                a {
+                    display: flex;
+                    align-items: center;
+                    gap: 1rem;
+                    font-size: 1.6rem;
+                    font-weight: 100;
+                }
+            }
+        }
+        .topHand {
+            width: 20rem;
+            right: 10%;
+            top: 0;
+        }
+        .bottomHand {
+            width: 18rem;
+            right: 25%;
+            bottom: 0;
+        }
+    }
 }
