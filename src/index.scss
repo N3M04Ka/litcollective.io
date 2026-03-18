@@ -14,8 +14,11 @@
     justify-content: center;
 }
 .container {
-    width: 144rem;
+    width: min(144rem,100vw);
 }
+// body{
+//     width: 100vw;
+// }
 #root,
 main {
     > * {
@@ -47,23 +50,26 @@ header {
     @include flex-center;
     background-color: black;
     .container {
-        padding: 20px 150px;
+        // padding: 20px 150px;
+        padding-block:clamp(0.5rem,calc(0.5rem + 1vw),2rem);
+        padding-inline: clamp(3rem,calc(2rem + 7vw),15rem);
         box-sizing: border-box;
         display: flex;
         justify-content: space-between;
         align-items: center;
         .headerPanel {
             display: flex;
-            gap: 50px;
+            gap: clamp(0.5rem,calc(0.5rem + 1vw),5rem);
+            // gap:5rem;
             > * {
                 align-items: center;
             }
             .linksList {
                 display: flex;
-                gap: 30px;
+                gap: clamp(0.5rem,calc(0.5rem + 0.8vw),3rem);
                 a {
                     font-family: "Roboto", sans-serif;
-                    font-size: 1.6rem;
+                    font-size: clamp(1rem,calc(1rem + 0.5vw),1.6rem);
                     display: flex;
                     align-items: center;
                     gap: 0.5rem;
@@ -72,15 +78,20 @@ header {
                     }
                 }
             }
-            .changeLanguage {
+            @media(width<=44rem){
+                display: none;
+            }
+        }
+        .changeLanguage {
                 position: relative;
                 display: flex;
                 button {
                     display: flex;
                     justify-content: space-around;
                     padding-block: 0.5rem;
-                    background: transparent;
+                    background-color: transparent;
                     color: white;
+
                     gap: 5px;
                 }
                 .firstB {
@@ -100,8 +111,46 @@ header {
                     left: 0;
                     top: 100%;
                     width: 80%;
-                    background: black;
+                    background: transparent;
                 }
+            }
+        .burgerMenuButton{
+            display: none;
+            border:none;
+            background-color: transparent;
+            color:white;
+            .icon{
+                font-size: 3rem;
+            }
+            @media(width<=44rem){
+                display: block;
+            }
+        }
+        .burgerMenu{
+            background-color: rgb(20, 20, 20);
+            position: fixed;
+            top:0;
+            box-sizing: border-box;
+            width: min(30rem, 100vw);
+            // right:-30rem;
+            padding:5rem;
+            transition: right .5s ease;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            gap:2rem;
+            .linksList{
+                display: flex;
+                gap:1rem;
+                flex-direction: column;
+                a{
+                    font-size: 2rem;
+                }
+            }
+            .burgerMenuButton{
+                display: block;
+                position:absolute;
+                right: 5rem;
             }
         }
     }

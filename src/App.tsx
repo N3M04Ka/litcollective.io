@@ -10,12 +10,12 @@ function App() {
     <>
         <Header/>
         <main>
-            <Introdaction/>
-            <Player/>
-            <Clients/>
-            <AboutUs/>
+            {/* <Introdaction/> */}
+            {/* <Player/> */}
+            {/* <Clients/> */}
+            {/* <AboutUs/> */}
         </main>
-        <Footer/>
+        {/* <Footer/> */}
     </>
   )
 }
