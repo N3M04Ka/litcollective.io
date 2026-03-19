@@ -36,10 +36,8 @@ export default function Header() {
     useEffect(() => {
         function handleResize() {
             const width = window.innerWidth;
-            if (width > 43 * 16) {
-                console.log("a" + isBurgerMenuIsOpen);
+            if (width > 43 * 16)
                 setIsBurgerMenuIsOpen(p=>p?false:p);
-            }
         }
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
